@@ -1,14 +1,12 @@
-/* CSS रीसेट और बेस स्टाइल */
+
 :root {
-    --primary-color: #9d4edd; /* गहरा बैंगनी रंग */
-    --secondary-color: #f0e6ff; /* बॉक्स के लिए हल्का बैंगनी */
+    --primary-color: #9d4edd; 
+    --secondary-color: #f0e6ff; 
     --text-dark: #333;
     --text-light: #fff;
     --font-family: 'Inter', sans-serif;
     --max-width: 1200px;
 }
-
-/* @import को HTML में ले जाया गया है */
 
 * {
     margin: 0;
@@ -20,7 +18,7 @@ body {
     font-family: var(--font-family);
     color: var(--text-dark);
     line-height: 1.6;
-    /* पृष्ठभूमि के लिए हल्का ग्रेडिएंट */
+
     background: linear-gradient(135deg, #fff 0%, #f7f2ff 50%, #fcecfc 100%);
     min-height: 100vh;
 }
@@ -32,15 +30,14 @@ body {
     padding: 20px 0;
 }
 
-/* --- हेडर और नेविगेशन --- */
 header {
-    /* हेडर पृष्ठभूमि अब सफ़ेद है */
+    
     background-color: white;
     padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* सफ़ेद पृष्ठभूमि से अलग दिखने के लिए छाया (shadow) जोड़ा गया */
+    
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); 
 }
 
@@ -74,7 +71,7 @@ header {
 
 .nav-links {
     list-style: none;
-    display: none; /* मोबाइल पर डिफ़ॉल्ट रूप से नेविगेशन छिपाएँ */
+    display: none; 
 }
 
 .nav-links a {
@@ -89,7 +86,7 @@ header {
     color: var(--primary-color);
 }
 
-/* हाईलाइटेड बटन */
+
 .nav-links .contact-button a {
     background-color: var(--primary-color);
     color: var(--text-light);
@@ -100,24 +97,24 @@ header {
 }
 
 .nav-links .contact-button a:hover {
-    background-color: #7f38bf; /* गहरा बैंगनी */
+    background-color: #7f38bf; 
     color: var(--text-light);
 }
 
-/* --- हीरो सेक्शन (मोबाइल फ़र्स्ट: स्टैक्ड) --- */
+
 .hero {
     display: flex;
-    flex-direction: column; /* मोबाइल पर लंबवत स्टैक करें */
+    flex-direction: column; 
     gap: 40px;
     padding: 40px 0 60px;
 }
 
 .hero-content {
-    order: 2; /* मोबाइल पर इमेज के नीचे सामग्री */
+    order: 2; 
 }
 
 .hero-image {
-    order: 1; /* जल्दी दिखने के लिए मोबाइल पर इमेज पहले */
+    order: 1; 
     position: relative;
     padding: 20px;
     overflow: hidden;
@@ -165,7 +162,7 @@ header {
     transform: translateY(-2px);
 }
 
-/* --- स्टेट्स बॉक्स --- */
+
 .stats {
     display: flex;
     flex-wrap: wrap;
@@ -175,7 +172,7 @@ header {
 }
 
 .stat-box {
-    flex: 1 1 45%; /* मोबाइल पर दो कॉलम */
+    flex: 1 1 45%; 
     background-color: var(--secondary-color);
     padding: 20px;
     border-radius: 12px;
@@ -196,7 +193,7 @@ header {
     color: var(--text-dark);
 }
 
-/* --- संपर्क फ़ॉर्म सेक्शन --- (इंटरैक्टिव एलिमेंट) */
+
 .contact-section {
     padding: 80px 0;
     text-align: center;
@@ -270,11 +267,11 @@ header {
     background-color: #7f38bf;
 }
 
-/* --- डेस्कटॉप/टैबलेट स्टाइल (मीडिया क्वेरी) --- */
+
 @media (min-width: 768px) {
     /* हेडर */
     .nav-links {
-        display: flex; /* नेविगेशन लिंक्स दिखाएँ */
+        display: flex; 
         align-items: center;
         gap: 5px;
     }
@@ -283,9 +280,9 @@ header {
         margin: 0 5px;
     }
 
-    /* हीरो सेक्शन (दो-कॉलम लेआउट) */
+    
     .hero {
-        flex-direction: row; /* डेस्कटॉप पर क्षैतिज लेआउट */
+        flex-direction: row; 
         align-items: center;
         text-align: left;
         padding: 80px 0;
@@ -293,35 +290,35 @@ header {
 
     .hero-content {
         flex: 1;
-        order: 1; /* सामग्री बाईं ओर */
+        order: 1; 
         padding-right: 50px;
     }
 
     .hero-image {
         flex: 1;
-        order: 2; /* इमेज दाईं ओर */
+        order: 2; 
         padding: 0;
     }
 
     .hero-image img {
         border-radius: 20px;
-        /* इमेज को पृष्ठभूमि से अलग दिखाने के लिए बॉर्डर */
+    
         border: 15px solid white;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
     }
 
     .hero-content h1 {
-        font-size: 4rem; /* डेस्कटॉप पर बड़ी शीर्षक */
+        font-size: 4rem; 
     }
 
-    /* स्टेट्स बॉक्स (डेस्कटॉप पर तीन कॉलम) */
+    
     .stats {
         justify-content: flex-start;
         gap: 20px;
     }
 
     .stat-box {
-        flex: 1 1 30%; /* डेस्कटॉप पर तीन कॉलम */
+        flex: 1 1 30%; 
         text-align: left;
         padding: 30px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
