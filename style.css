@@ -1,0 +1,329 @@
+/* CSS रीसेट और बेस स्टाइल */
+:root {
+    --primary-color: #9d4edd; /* गहरा बैंगनी रंग */
+    --secondary-color: #f0e6ff; /* बॉक्स के लिए हल्का बैंगनी */
+    --text-dark: #333;
+    --text-light: #fff;
+    --font-family: 'Inter', sans-serif;
+    --max-width: 1200px;
+}
+
+/* @import को HTML में ले जाया गया है */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-dark);
+    line-height: 1.6;
+    /* पृष्ठभूमि के लिए हल्का ग्रेडिएंट */
+    background: linear-gradient(135deg, #fff 0%, #f7f2ff 50%, #fcecfc 100%);
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* --- हेडर और नेविगेशन --- */
+header {
+    /* हेडर पृष्ठभूमि अब सफ़ेद है */
+    background-color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* सफ़ेद पृष्ठभूमि से अलग दिखने के लिए छाया (shadow) जोड़ा गया */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.logo-icon {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin-right: 8px;
+}
+
+.nav-links {
+    list-style: none;
+    display: none; /* मोबाइल पर डिफ़ॉल्ट रूप से नेविगेशन छिपाएँ */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* हाईलाइटेड बटन */
+.nav-links .contact-button a {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.nav-links .contact-button a:hover {
+    background-color: #7f38bf; /* गहरा बैंगनी */
+    color: var(--text-light);
+}
+
+/* --- हीरो सेक्शन (मोबाइल फ़र्स्ट: स्टैक्ड) --- */
+.hero {
+    display: flex;
+    flex-direction: column; /* मोबाइल पर लंबवत स्टैक करें */
+    gap: 40px;
+    padding: 40px 0 60px;
+}
+
+.hero-content {
+    order: 2; /* मोबाइल पर इमेज के नीचे सामग्री */
+}
+
+.hero-image {
+    order: 1; /* जल्दी दिखने के लिए मोबाइल पर इमेज पहले */
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.hero-content p strong {
+    color: var(--primary-color);
+}
+
+.say-hello-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+}
+
+.say-hello-btn:hover {
+    background-color: #7f38bf;
+    transform: translateY(-2px);
+}
+
+/* --- स्टेट्स बॉक्स --- */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.stat-box {
+    flex: 1 1 45%; /* मोबाइल पर दो कॉलम */
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 120px;
+}
+
+.stat-box h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.stat-box p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* --- संपर्क फ़ॉर्म सेक्शन --- (इंटरैक्टिव एलिमेंट) */
+.contact-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #fff;
+    margin-top: 50px;
+    border-top: 1px solid #eee;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.contact-section p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #7f38bf;
+}
+
+/* --- डेस्कटॉप/टैबलेट स्टाइल (मीडिया क्वेरी) --- */
+@media (min-width: 768px) {
+    /* हेडर */
+    .nav-links {
+        display: flex; /* नेविगेशन लिंक्स दिखाएँ */
+        align-items: center;
+        gap: 5px;
+    }
+
+    .nav-links li {
+        margin: 0 5px;
+    }
+
+    /* हीरो सेक्शन (दो-कॉलम लेआउट) */
+    .hero {
+        flex-direction: row; /* डेस्कटॉप पर क्षैतिज लेआउट */
+        align-items: center;
+        text-align: left;
+        padding: 80px 0;
+    }
+
+    .hero-content {
+        flex: 1;
+        order: 1; /* सामग्री बाईं ओर */
+        padding-right: 50px;
+    }
+
+    .hero-image {
+        flex: 1;
+        order: 2; /* इमेज दाईं ओर */
+        padding: 0;
+    }
+
+    .hero-image img {
+        border-radius: 20px;
+        /* इमेज को पृष्ठभूमि से अलग दिखाने के लिए बॉर्डर */
+        border: 15px solid white;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-content h1 {
+        font-size: 4rem; /* डेस्कटॉप पर बड़ी शीर्षक */
+    }
+
+    /* स्टेट्स बॉक्स (डेस्कटॉप पर तीन कॉलम) */
+    .stats {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .stat-box {
+        flex: 1 1 30%; /* डेस्कटॉप पर तीन कॉलम */
+        text-align: left;
+        padding: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+}
